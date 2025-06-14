@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PWA Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ToDo PWA</title>
   <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
-        .then(() => console.log('Service Worker registrato!'))
-        .catch(err => console.log('SW registration failed:', err));
+        .then(() => console.log("Service Worker registrato"))
+        .catch(err => console.error("Errore SW:", err));
     }
   </script>
 </head>
 <body>
-  <h1>Benvenuto nella tua PWA!</h1>
+  <h1>📋 La mia ToDo List</h1>
+  <form id="todo-form">
+    <input type="text" id="todo-input" placeholder="Aggiungi una nuova attività" required />
+    <button type="submit">Aggiungi</button>
+  </form>
+  <ul id="todo-list"></ul>
+
+  <script src="app.js"></script>
 </body>
 </html>
